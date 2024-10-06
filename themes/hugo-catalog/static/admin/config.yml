@@ -21,7 +21,7 @@ public_folder: /images
 publish_mode: editorial_workflow
 
 # URL to your company logo to be used in the login screen, logo max width is 300px. Logo can be a relative path or a CDN url.
-logo_url: ../images/hugo-catalog-logo.svg
+logo_url: ../images/tb-hurricane-guide-logo.jpg
 
 # Collection of pages decap can access
 collections:

@@ -17,7 +17,7 @@ title = true
     # description text to display when sharing your site
     description = "Design beautiful styleguides by using markdown."
     # the path to your site logo 
-    logo = "/images/hugo-catalog-icon.svg"
+    logo = "/images/tb-hurricane-guide-logo-sm.jpg"
     # enables displaying the site name in the header
     disable_site_name_header = false    
     # sets the sites primary color
