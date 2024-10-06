@@ -2,6 +2,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{.Title}} - {{.Site.Title}}</title>
+<base href="{{getenv "BASE_URL"}}">
 {{ partial "css.html" . }}
 {{ template "_internal/opengraph.html" . }}
 {{ partial "favicon.html" . }}
