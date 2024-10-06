@@ -144,9 +144,8 @@ body {
   margin: 24px 0; }
 
 .brand {
-  padding: 40px;
-  width: calc(250px - 80px);
-  height: calc(200px - 80px);
+  width: 250px;
+  height: 200px;
   display: flex;
   align-items: center; }
   .brand a {
