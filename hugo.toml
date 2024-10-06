@@ -3,7 +3,7 @@ languageCode = "en-us"
 title = "TB Hurricane Guide"
 theme = "hugo-catalog"
 
-canonifyURLs = true
+canonifyURLs = false
 
 [markup.goldmark.parser.attribute]
 block = true
