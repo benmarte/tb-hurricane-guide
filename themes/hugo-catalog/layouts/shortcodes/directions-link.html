@@ -1,0 +1,4 @@
+{{$address := .Get "address"}}
+<a href="https://www.google.com/maps/search/?api=1&query={{ $address | urlquery }}" target="_blank">
+    {{$address}}
+</a>

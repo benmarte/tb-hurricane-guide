@@ -1,7 +1,7 @@
 {{$page := .Page}}
 {{$enable_subnav := site.Params.enable_subnav}}
 <div class="navigation">
-  <button class="nav-close" onclick="toggleNav()">
+  <button class="nav-close has-text-white" onclick="toggleNav()">
     <i class="fa-regular fa-circle-xmark"></i>
   </button>
   <div class="brand">
@@ -35,7 +35,7 @@
         >
        {{.Title}}
       </a>
-
+      
       {{if eq .Site.Params.enable_subnav true}}
         {{ if eq $page.Permalink .Permalink }}
         {{.TableOfContents}}
