@@ -1,35 +1,38 @@
-name: Deploy Styleguide
+name: Deploy Hugo site to GitHub Pages
 
 on:
   push:
     branches:
-      - main # Set a branch to deploy
-  pull_request:
-  workflow_dispatch:
+      - main
 
 jobs:
-  deploy:
-    runs-on: ubuntu-20.04
-    permissions:
-      contents: write
+  build:
+    runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
         with:
-          submodules: true # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
+          hugo-version: '0.104.0'
 
-      - name: Hugo setup
-        uses: peaceiris/actions-hugo@v2.6.0
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
         with:
-          hugo-version: "latest"
-          extended: true
+          node-version: '16'
 
-      - name: Build
-        run: hugo --minify --baseURL ${{secrets.BASE_URL}}
+      - name: Install dependencies
+        run: npm ci
 
-      - name: Deploy
+      - name: Build site
+        env:
+          BASE_URL: ${{ secrets.BASE_URL }}
+        run: hugo --minify --baseURL $BASE_URL
+
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
-        if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
