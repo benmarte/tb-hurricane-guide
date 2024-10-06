@@ -2,7 +2,7 @@ backend:
   # backend to use
   name: github
   # your github repo ex: benmarte/hugo-catalog
-  repo: benmarte/hugo-catalog-site
+  repo: benmarte/tb-hurricane-guide
   # optional, defaults to master
   branch: main
   # your netlify site name ex: netlify-site-name.netlify.app
