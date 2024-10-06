@@ -2,11 +2,11 @@ backend:
   # backend to use
   name: github
   # your github repo ex: benmarte/hugo-catalog
-  repo: benmarte/hugo-catalog-site
+  repo: benmarte/tb-hurricane-guide
   # optional, defaults to master
   branch: main
   # your netlify site name ex: netlify-site-name.netlify.app
-  site_domain: hugo-catalog.netlify.app
+  site_domain: tb-hurricane-guide.netlify.app
   # required for pkce - uncomment if using gitlab pages
   # auth_type: pkce
   # application ID from your GitLab OAuth App - uncomment if using gitlab pages
@@ -21,7 +21,7 @@ public_folder: /images
 publish_mode: editorial_workflow
 
 # URL to your company logo to be used in the login screen, logo max width is 300px. Logo can be a relative path or a CDN url.
-logo_url: ../images/hugo-catalog-logo.svg
+logo_url: ../images/tb-hurricane-guide-logo.jpg
 
 # Collection of pages decap can access
 collections:

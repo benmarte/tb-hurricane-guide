@@ -3,9 +3,14 @@ name: Deploy Styleguide
 on:
   push:
     branches:
-      - main # Set a branch to deploy
+      - main  # Set branch to deploy
   pull_request:
   workflow_dispatch:
+    inputs:
+      name:
+        type: boolean
+        description: 'Manual Deploy'
+        required: true
 
 jobs:
   deploy:
@@ -15,8 +20,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          submodules: true # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
+          submodules: true  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0  # Fetch all history for .GitInfo and .Lastmod
 
       - name: Hugo setup
         uses: peaceiris/actions-hugo@v2.6.0
@@ -25,11 +30,11 @@ jobs:
           extended: true
 
       - name: Build
-        run: hugo --minify --baseURL ${{secrets.BASE_URL}}
+        run: hugo --minify --baseURL ${{ secrets.BASE_URL }}
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
-        if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
+        if: github.ref == 'refs/heads/main'
