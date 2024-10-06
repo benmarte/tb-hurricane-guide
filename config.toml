@@ -15,9 +15,9 @@ title = true
     # thumbnail image to display when sharing your site
     thumbnail = "/images/poster.jpg"
     # opengraph image to display when sharing your site
-    images = ["/images/poster.jpg"]
+    images = ["/images/opengraph.jpg"]
     # description text to display when sharing your site
-    description = "Resources for hurricane preparedness and response"
+    description = "Your one stop resource for hurricane preparedness."
     # the path to your site logo 
     logo = "/images/tb-hurricane-guide-logo-sm.jpg"
     # enables displaying the site name in the header
