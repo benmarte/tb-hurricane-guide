@@ -934,6 +934,35 @@
 
       //  End Video Widget ------------------------------------------------------------------- /
 
+      //  Start DirectionLink Widget ------------------------------------------------------------------- /
+
+      const DirectionLink = {
+        // Internal id of the component
+        id: "directionslink",
+        // Visible label
+        label: "Directions Link",
+        // Fields the user need to fill out when adding an instance of the component
+        fields: [{ name: 'address', label: 'Address', widget: 'string' }],
+        // Pattern to identify a block as being an instance of this component
+        pattern: /{{<\s?directions-link address="([^"]+)"\s?>}}/,
+        // Function to extract data elements from the regexp match
+        fromBlock: function(match) {
+          return {
+            address: match[1]
+          };
+        },
+        // Function to create a text block from an instance of this component
+        toBlock: function(obj) {
+          return `{{< directions-link address="${obj.address}" >}}`;
+        },
+        // Preview output for this component (optional)
+        toPreview: function(obj) {
+          return `${obj.address}`;
+        }
+      };
+
+      //  End DirectionLink Widget ------------------------------------------------------------------- /
+
       // Start css files for previews
 
       const css = "../main.css";
