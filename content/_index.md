@@ -6,6 +6,10 @@ title: "Home"
 This website serves as a tool for hurricane preparedness in the Tampa Bay area, but contains resources
 that are valuable for anyone facing the risk of an incoming hurricane. We created this website as a central location for anyone looking for evacuation maps, sandbag locations, and other resources to help you get through a hurricane safely.
 
+{{<divider-title title="Live Hurricane Tracker " align="left">}}
+
+{{<youtube zAWMh1BGgVw>}}
+
 {{<divider-title title="Live Weather Map" align="left">}}
 
 {{<windy-map>}}
