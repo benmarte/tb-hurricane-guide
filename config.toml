@@ -13,7 +13,7 @@ title = true
     # title to display when sharing your site
     title = "Hurricane Guide"
     # thumbnail image to display when sharing your site
-    thumbnail = "/images/thumbnail.jpg"
+    thumbnail = "/images/poster.jpg"
     # description text to display when sharing your site
     description = "Resources for hurricane preparedness and response"
     # the path to your site logo 
