@@ -1,0 +1,69 @@
+.hint-shortcode {
+  margin: 8px 0 0 0;
+  padding: 20px;
+
+  &.warning {
+    background: $warning-light !important;
+    border: 1px solid $warning-dark;
+    p {
+      &:first-of-type,
+      &:last-child {
+        margin: 0 !important;
+      }
+      margin: 0 0 16px 0 !important;
+      color: $warning-dark !important;
+    }
+    hr {
+      margin: 0 0 16px 0 !important;
+      background: $warning-dark !important;
+    }
+  }
+  &.danger {
+    background: $danger-light !important;
+    border: 1px solid $danger;
+    p {
+      &:first-of-type,
+      &:last-child {
+        margin: 0 !important;
+      }
+      margin: 0 0 16px 0 !important;
+      color: $danger-dark !important;
+    }
+    hr {
+      margin: 0 0 16px 0 !important;
+      background: $danger-dark !important;
+    }
+  }
+  &.success {
+    background: $success-light !important;
+    border: 1px solid $success;
+    p {
+      &:first-of-type,
+      &:last-child {
+        margin: 0 !important;
+      }
+      margin: 0 0 16px 0 !important;
+      color: $success-dark !important;
+    }
+    hr {
+      margin: 0 0 16px 0 !important;
+      background: $success-dark !important;
+    }
+  }
+  &.info {
+    background: $info-light !important;
+    border: 1px solid $info;
+    p {
+      &:first-of-type,
+      &:last-child {
+        margin: 0 !important;
+      }
+      margin: 0 0 16px 0 !important;
+      color: $info-dark !important;
+    }
+    hr {
+      margin: 0 0 16px 0 !important;
+      background: $info-dark !important;
+    }
+  }
+}

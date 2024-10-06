@@ -1,0 +1,46 @@
+.image-shortcode {
+  margin-top: 16px;
+  img {
+    margin: 16px 0;
+  }
+  &.plain {
+    background: transparent;
+  }
+  &.light {
+    padding: 20px;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAAAAACoWZBhAAAAF0lEQVQI12P4BAI/QICBFCaYBPNJYQIAkUZftTbC4sIAAAAASUVORK5CYII=");
+  }
+  &.dark {
+    padding: 20px;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAAAAACoWZBhAAAAFklEQVQI12NQBQF2EGAghQkmwXxSmADZJQiZ2ZZ46gAAAABJRU5ErkJggg==");
+    p {
+      color: $white !important;
+    }
+
+  }
+  &.plain.light {
+    padding: 20px;
+    background: $image-light-bg;
+  }
+  &.plain.dark {
+    padding: 20px;
+    background: $image-dark-bg;
+  }
+  &.no-scale {
+    div > img {
+      width: auto !important;
+      height: auto !important;
+    }
+  }
+  .overlay {
+    display: none;
+  }
+  &:hover {
+    .source {
+      display: none;
+    }
+    .overlay {
+      display: block;
+    }
+  }
+}

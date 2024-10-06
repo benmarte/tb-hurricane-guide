@@ -1,0 +1,34 @@
+baseURL = "http://localhost:1313"
+languageCode = "en-us"
+title = "Hugo Catalog"
+theme = "hugo-catalog"
+
+canonifyURLs = true
+
+[markup.goldmark.parser.attribute]
+block = true
+title = true
+
+[Params]
+    # title to display when sharing your site
+    title = "Hugo Catalog"
+    # thumbnail image to display when sharing your site
+    thumbnail = "/images/thumbnail.jpg"
+    # description text to display when sharing your site
+    description = "Design beautiful styleguides by using markdown."
+    # the path to your site logo 
+    logo = "/images/hugo-catalog-icon.svg"
+    # enables displaying the site name in the header
+    disable_site_name_header = false    
+    # sets the sites primary color
+    primary_color = "#003b5c"
+    # sets the sites secondary color
+    secondary_color = "#C6007E"
+    # sets the sites font family
+    font_family = "Montserrat"
+    # enables subnav page links in nav
+    enable_subnav = true
+
+[module]
+  [module.hugoVersion]
+    extended = true

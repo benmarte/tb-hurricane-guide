@@ -1,0 +1,6 @@
+{{$type := .Get "type" | default "info"}}
+{{$span := .Get "span" | default 6}}
+
+<div class="span-{{$span}} hint-shortcode {{$type}}">
+  {{.Inner | markdownify}}
+</div>

@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Content Manager</title>
+    <!-- Include the script that enables Netlify Identity on this page. -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    
+    <style>
+      [data-slate-editor] { 
+        -webkit-user-modify: read-write !important; 
+    }
+    </style>
+  </head>
+  <body>
+    <!-- Include the script that builds the page and powers Decap CMS -->
+    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+    <!-- Include the script to render markdown widgets in the toPreview blocks -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/5.0.2/marked.min.js" integrity="sha512-pR2pRxcTyeDj6VIOCyr++qKaMVGOlr4uI3XK7jdsLJipnyts+Bo9jtEaL0p+iVcG5pCx84f045DAZH5OrHM9Sw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+
+      const convertToBool = (val) => {
+        const booleanValue = val === "true"  || val === true ? true : false;
+        return booleanValue
+      };
+
+      //  Start Audio Widget ------------------------------------------------------------------- /
+
+      const AudioWidget = {
+        // Internal id of the component
+        id: "audio-widget",
+        // Visible label
+        label: "Audio",
+        // Fields the user need to fill out when adding an instance of the component
+        fields: [
+          {
+            name: "src",
+            label: "Source",
+            widget: "string",
+            default: "",
+            required: true,
+          },
+          {
+            name: "title",
+            label: "Title",
+            widget: "string",
+            default: "",
+            required: false,
+          },
+          {
+            name: "span",
+            label: "Span",
+            widget: "select",
+            required: true,
+            options: ["1", "2", "3", "4", "5", "6"],
+            default: ["6"]
+          },
+          {
+            name: "autoplay",
+            label: "Auto Play",
+            widget: "boolean",
+            default: false,
+          },
+          {
+            name: "muted",
+            label: "Muted",
+            widget: "boolean",
+            default: false,
+          },
+          {
+            name: "loop",
+            label: "Loop",
+            widget: "boolean",
+            default: false,
+          },
+        ],
+        // Regex pattern used to search for instances of this block in the markdown document.
+        // Patterns are run in a multline environment (against the entire markdown document),
+        // and so generally should make use of the multiline flag (`m`). If you need to capture
+        // newlines in your capturing groups, you can either use something like
+        // `([\S\s]*)`, or you can additionally enable the "dot all" flag (`s`),
+        // which will cause `(.*)` to match newlines as well.
+        //
+        // Additionally, it's recommended that you use non-greedy capturing groups (e.g.
+        // `(.*?)` vs `(.*)`), especially if matching against newline characters.
+
+        pattern: /\{\{<audio src="(.*?)" title="(.*?)" span="(.*?)" autoplay="(.*?)" muted="(.*?)" loop="(.*?)"\>\}\}/ms,
+        // Given a RegExp Match object
+        // (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match#return_value),
+        // return an object with one property for each field defined in `fields`.
+        //
+        // This is used to populate the custom widget in the markdown editor in the CMS.
+        fromBlock: function (match) {
+          return {
+            src: match[1],
+            title: match[2],
+            span: match[3],
+            autoplay: convertToBool(match[4]), 
+            muted: convertToBool(match[5]),
+            loop: convertToBool(match[6]),
+          };
+        },
+        // Given an object with one property for each field defined in `fields`,
+        // return the string you wish to be inserted into your markdown.
+        //
+        // This is used to serialize the data from the custom widget to the
+        // markdown document
+        toBlock: function (data) {
+          return `{{<audio src="${data.src}" title="${data.title}" span="${data.span}" autoplay="${data.autoplay}" muted="${data.muted}" loop="${data.loop}">}}`;
+        },
+        // Preview output for this component. Can either be a string or a React component
+        // (component gives better render performance)
+        toPreview: function (data) {
+          const title = data.title !== "" ? `<p>${data.title}</p>` : "";
+          const isAutoplayed = convertToBool(data.autoplay);
+          const isMuted = convertToBool(data.muted);
+          const isLooped = convertToBool(data.loop);
+          return `<div class="span-${data.span}">
+            <div class="audio-shortcode">
+              ${title}
+              <audio
+                src="${data.src}"
+                ${isLooped ? "loop" : ""}
+                ${isAutoplayed ? "autoplay" : ""}
+                ${isMuted ? "muted" : ""}
+                controls
+              >
+              </audio>
+            </div>
+          </div>`;
+        },
+      };
+
+      //  End Audio Widget ------------------------------------------------------------------- /
+
+      //  Start Bullet Widget ------------------------------------------------------------------- /
+
+      const BulletWidget = {
+        // Internal id of the component
+        id: "bullet-widget",
+        // Visible label
+        label: "Bullet",
+        // Fields the user need to fill out when adding an instance of the component
+        fields: [
+          {
+            name: "leading_text",
+            label: "Leading Text",
+            widget: "string",
+            default: "",
+            required: false,
+          },
+          {
+            name: "text",
+            label: "Text",
+            widget: "string",
+            default: "",
+            required: true,
+          },
+          {
+            name: "type",
+            label: "Type",
+            widget: "boolean",
+            default: true,
+          },
+        ],
+        // Regex pattern used to search for instances of this block in the markdown document.
+        // Patterns are run in a multline environment (against the entire markdown document),
+        // and so generally should make use of the multiline flag (`m`). If you need to capture
+        // newlines in your capturing groups, you can either use something like
+        // `([\S\s]*)`, or you can additionally enable the "dot all" flag (`s`),
+        // which will cause `(.*)` to match newlines as well.
+        //
+        // Additionally, it's recommended that you use non-greedy capturing groups (e.g.
+        // `(.*?)` vs `(.*)`), especially if matching against newline characters.
+
+        pattern: /\{\{<bullet leading_text="(.*?)" text="(.*?)" type="(.*?)"\>\}\}/ms,
+        // Given a RegExp Match object
+        // (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match#return_value),
+        // return an object with one property for each field defined in `fields`.
+        //
+        // This is used to populate the custom widget in the markdown editor in the CMS.
+        fromBlock: function (match) {
+          return {
+            leading_text: match[1],
+            text: match[2],
+            type: convertToBool(match[3]),
+          };
+        },
+        // Given an object with one property for each field defined in `fields`,
+        // return the string you wish to be inserted into your markdown.
+        //
+        // This is used to serialize the data from the custom widget to the
+        // markdown document
+        toBlock: function (data) {
+          return `{{<bullet leading_text="${data.leading_text}" text="${data.text}" type="${data.type}">}}`;
+        },
+        // Preview output for this component. Can either be a string or a React component
+        // (component gives better render performance)
+        toPreview: function (data) {
+          const type = data.type === true ? `<i class="fa-regular fa-circle-check success"></i>` : `<i class="far fa-window-close danger"></i>`;
+          const leading_text = data.leading_text !== "" ? `<b>${data.leading_text}</b>` : "";
+          const text = data.text !== "" ? `${data.text}` : "";
+          return `<div class="bullet">
+            ${type}
+            <div>
+              ${leading_text}
+              ${text}
+            </div>
+          </div>`;
+        },
+      };
+
+      //  End Bullet Widget ------------------------------------------------------------------- /
+
+      //  Start Catalog Image Widget ------------------------------------------------------------------- /
+
+      const CatalogImageWidget = {
+        // Internal id of the component
+        id: "catalog-image-widget",
+        // Visible label
+        label: "Catalog Image",
+        // Fields the user need to fill out when adding an instance of the component
+        fields: [
+          {
+            name: "src",
+            label: "File",
+            widget: "file",
+            default: "",
+            required: true,
+            media_library: {
+              config: {
+                allow_multiple: false,
+                media_folder: "/static/images",
+              },
+            },
+          },
+          {
+            name: "span",
+            label: "Span",
+            widget: "select",
+            required: true,
+            options: ["1", "2", "3", "4", "5", "6"],
+            default: ["6"],
+          },
+          {
+            name: "text_position",
+            label: "Text Position",
+            widget: "select",
+            options: ["top", "bottom"],
+            default: ["top"],
+            required: true,
+          },
+          {
+            name: "title",
+            label: "Title",
+            widget: "string",
+            default: "",
+            required: false,
+          },
+          {
+            name: "description",
+            label: "Description",
+            widget: "string",
+            default: "",
+            required: false,
+          },
+          {
+            name: "overlay",
+            label: "Overlay",
+            widget: "file",
+            default: "",
+            required: false,
+            media_library: {
+              config: {
+                allow_multiple: false,
+                media_folder: "/static/images",
+              },
+            },
+          },
+          {
+            name: "light",
+            label: "Light",
+            widget: "boolean",
+            default: false,
+            required: false,
+          },
+          {
+            name: "dark",
+            label: "Dark",
+            widget: "boolean",
+            default: false,
+            required: false,
+          },
+          {
+            name: "scale",
+            label: "Scale",
+            widget: "boolean",
+            default: true,
+            required: false,
+          },
+
+        ],
+        // Regex pattern used to search for instances of this block in the markdown document.
+        // Patterns are run in a multline environment (against the entire markdown document),
+        // and so generally should make use of the multiline flag (`m`). If you need to capture
+        // newlines in your capturing groups, you can either use something like
+        // `([\S\s]*)`, or you can additionally enable the "dot all" flag (`s`),
+        // which will cause `(.*)` to match newlines as well.
+        //
+        // Additionally, it's recommended that you use non-greedy capturing groups (e.g.
+        // `(.*?)` vs `(.*)`), especially if matching against newline characters.
+
+        pattern: /\{\{<catalog-image src="(.*?)" span="(.*?)" text_position="(.*?)" title="(.*?)" description="(.*?)" overlay="(.*?)" light="(.*?)" dark="(.*?)" scale="(.*?)"\>\}\}/ms,
+        // Given a RegExp Match object
+        // (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match#return_value),
+        // return an object with one property for each field defined in `fields`.
+        //
+        // This is used to populate the custom widget in the markdown editor in the CMS.
+        fromBlock: function (match) {
+          return {
+            src: match[1],
+            span: match[2],
+            text_position: match[3],
+            title: match[4],
+            description: match[5],
+            overlay: match[6],
+            light: convertToBool(match[7]),
+            dark: convertToBool(match[8]),
+            scale: convertToBool(match[9]),
+          };
+        },
+        // Given an object with one property for each field defined in `fields`,
+        // return the string you wish to be inserted into your markdown.
+        //
+        // This is used to serialize the data from the custom widget to the
+        // markdown document
+        toBlock: function (data) {
+          const isLight = convertToBool(data.light);
+          const isDark = convertToBool(data.dark);
+          const scaleImage = convertToBool(data.scale);
+          return `{{<catalog-image src="${data.src}" span="${data.span}" text_position="${data.text_position}" title="${data.title}" description="${data.description}" overlay="${data.overlay}" light="${data.light}" dark="${data.dark}" scale="${data.scale}">}}`;
+        },
+        // Preview output for this component. Can either be a string or a React component
+        // (component gives better render performance)
+        toPreview: function (data) {
+          const title_top = data.text_position === "top" && data.title !=="" ? `<p><b>${data.title}</b></p>` : "";
+          const description_top = data.text_position === "top" && data.description !=="" ? `<p>${data.description}</p>` : "";
+          const overlay = data.overlay !== "" ? `class="source"` : "";
+          const imageURL = `${window.location.href.split('/admin/')[0]}${data.src}`;
+          const overlayURL = data.overlay !== "" ? `<div class="overlay"><img src="${`${window.location.href.split('/admin/')[0]}${data.overlay}`}" /></div>` : "";
+          const title_bottom = data.text_position === "bottom" && data.title !== "" ? `<p><b>${data.title}</b></p>` : "";
+          const description_bottom = data.text_position === "bottom" && data.description !== "" ? `<p>${data.description}</p>` : "";
+          const isLight = convertToBool(data.light) ? "light" : "";
+          const isDark = convertToBool(data.dark) ? "dark" : "";
+          const scaleImage = convertToBool(data.scale) ? "" : "no-scale";
+          return `<div
+          class="span-${data.span} image-shortcode ${isLight} ${isDark} ${scaleImage}"
+        >
+        ${title_top}
+        ${description_top}
+
+        <div ${overlay}>
+          <img src="${imageURL}" />
+        </div>
+        ${overlayURL}
+          
+        ${title_bottom}
+        ${description_bottom}
+        </div>`;
+        },
+      };
+
+      //  End Catalog Image Widget ------------------------------------------------------------------- /
+
+      //  Start Color Widget ------------------------------------------------------------------- /
+
+      const ColorWidget = {
+        // Internal id of the component
+        id: "color-widget",
+        // Visible label
+        label: "Color",
+        // Fields the user need to fill out when adding an instance of the component
+        fields: [
+          {
+            name: "name",
+            label: "Name",
+            widget: "string",
+            default: "",
+            required: true,
+          },
+          {
+            name: "span",
+            label: "Span",
+            widget: "select",
+            required: true,
+            options: ["1", "2", "3", "4", "5", "6"],
+            default: ["6"]
+          },
+          {
+            name: "hex",
+            label: "Hex",
+            widget: "color",
+            default: "#000000",
+            required: true,
+          },
+          {
+            name: "rgb",
+            label: "RGB",
+            widget: "string",
+            default: "",
+            required: false,
+          },
+          {
+            name: "pantone",
+            label: "Pantone",
+            widget: "string",
+            default: "",
+            required: false,
+          },
+          {
+            name: "cmyk",
+            label: "CMYK",
+            widget: "string",
+            default: "",
+            required: false,
+          },
+          {
+            name: "mui",
+            label: "MUI",
+            widget: "string",
+            default: "",
+            required: false,
+          },
+        ],
+        // Regex pattern used to search for instances of this block in the markdown document.
+        // Patterns are run in a multline environment (against the entire markdown document),
+        // and so generally should make use of the multiline flag (`m`). If you need to capture
+        // newlines in your capturing groups, you can either use something like
+        // `([\S\s]*)`, or you can additionally enable the "dot all" flag (`s`),
+        // which will cause `(.*)` to match newlines as well.
+        //
+        // Additionally, it's recommended that you use non-greedy capturing groups (e.g.
+        // `(.*?)` vs `(.*)`), especially if matching against newline characters.
+
+        pattern: /\{\{<color name="(.*?)" span="(.*?)" hex="(.*?)" rgb="(.*?)" pantone="(.*?)" cmyk="(.*?)" mui="(.*?)"\>\}\}/ms,
+        // Given a RegExp Match object
+        // (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match#return_value),
+        // return an object with one property for each field defined in `fields`.
+        //
+        // This is used to populate the custom widget in the markdown editor in the CMS.
+        fromBlock: function (match) {
+          return {
+            name: match[1],
+            span: match[2],
+            hex: match[3],
+            rgb: match[4],
+            pantone: match[5],
+            cmyk: match[6],
+            mui: match[7],
+          };
+        },
+        // Given an object with one property for each field defined in `fields`,
+        // return the string you wish to be inserted into your markdown.
+        //
+        // This is used to serialize the data from the custom widget to the
+        // markdown document
+        toBlock: function (data) {
+          return `{{<color name="${data.name}" span="${data.span}" hex="${data.hex}" rgb="${data.rgb}" pantone="${data.pantone}" cmyk="${data.cmyk}" mui="${data.mui}">}}`;
+        },
+        // Preview output for this component. Can either be a string or a React component
+        // (component gives better render performance)
+        toPreview: function (data) {
+          const name = data.name !== "" ? `<p class="color-name"><b>${data.name}</b></p>` : "";
+          const rgb = data.rgb !== "" ? `<p><b>RGB:</b> ${data.rgb}</p>` : "";
+          const hex = data.hex !== "" ? `<p><b>HEX:</b> ${data.hex}</p>` : "";
+          const pantone = data.pantone !== "" ? `<p><b>PANTONE:</b> ${data.pantone}</p>` : "";
+          const cmyk = data.cmyk !== "" ? `<p><b>CMYK:</b> ${data.cmyk}</p>` : "";
+          const mui = data.mui !== "" ? `<p><b>MUI:</b> ${data.mui}</p>` : "";
+          return `<div class="span-${data.span}">
+            <div class="color-shortcode" style="background: ${data.hex}"></div>
+            ${name}
+            ${rgb}
+            ${hex}
+            ${pantone}
+            ${cmyk}
+            ${mui}
+          </div>`;
+        },
+      };
+
+      //  End Color Widget ------------------------------------------------------------------- /
+
+      //  Start Column Widget ------------------------------------------------------------------- /
+
+      const ColumnWidget = {
+        // Internal id of the component
+        id: "column-widget",
+        // Visible label
+        label: "Column",
+        // Fields the user need to fill out when adding an instance of the component
+        fields: [
+          {
+            name: "span",
+            label: "Span",
+            widget: "select",
+            required: true,
+            options: ["1", "2", "3", "4", "5", "6"],
+            default: ["6"]
+          },
+          {
+            name: "color",
+            label: "Color",
+            widget: "color",
+            default: "#f9f9f9",
+            required: false,
+          },
+          {
+            name: "align",
+            label: "Align",
+            widget: "select",
+            options: ["left", "center", "right"],
+            default: ["left"],
+          },
+          {
+            name: "content",
+            label: "Content",
+            widget: "markdown",
+            required: true,
+          },
+        ],
+        // Regex pattern used to search for instances of this block in the markdown document.
+        // Patterns are run in a multline environment (against the entire markdown document),
+        // and so generally should make use of the multiline flag (`m`). If you need to capture
+        // newlines in your capturing groups, you can either use something like
+        // `([\S\s]*)`, or you can additionally enable the "dot all" flag (`s`),
+        // which will cause `(.*)` to match newlines as well.
+        //
+        // Additionally, it's recommended that you use non-greedy capturing groups (e.g.
+        // `(.*?)` vs `(.*)`), especially if matching against newline characters.
+
+        pattern: /\{\{<column span="(.*?)" color="(.*?)" align="(.*?)"\>\}\}(.*?){\{<\/column>\}\}/ms,
+        // Given a RegExp Match object
+        // (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match#return_value),
+        // return an object with one property for each field defined in `fields`.
+        //
+        // This is used to populate the custom widget in the markdown editor in the CMS.
+        fromBlock: function (match) {
+          return {
+            span: match[1],
+            color: match[2] === "#f9f9f9" ? "" : match[2],
+            align: match[3],
+            content: match[4],
+          };
+        },
+        // Given an object with one property for each field defined in `fields`,
+        // return the string you wish to be inserted into your markdown.
+        //
+        // This is used to serialize the data from the custom widget to the
+        // markdown document
+        toBlock: function (data) {
+          return `{{<column span="${data.span}" color="${data.color}" align="${data.align}">}}${data.content}{{</column>}}`;
+        },
+        // Preview output for this component. Can either be a string or a React component
+        // (component gives better render performance)
+        toPreview: function (data) {
+          const color = data.color !== "" ? `background: ${data.color};` : "";
+          return `<div
+          class="span-${data.span}"
+          style="${color} text-align: ${data.align};"
+        >
+          ${marked.parse(data.content)}
+        </div>`;
+        },
+      };
+
+      //  End Column Widget ------------------------------------------------------------------- /
+
+      //  Start Divider Title Widget ------------------------------------------------------------------- /
+
+      const DividerTitleWidget = {
+        // Internal id of the component
+        id: "divider-title-widget",
+        // Visible label
+        label: "Divider Title",
+        // Fields the user need to fill out when adding an instance of the component
+        fields: [
+          {
+            name: "title",
+            label: "Title",
+            widget: "string",
+            default: "",
+            required: true,
+          },
+          {
+            name: "align",
+            label: "Align",
+            widget: "select",
+            options: ["left", "center", "right"],
+            default: ["left"],
+          },
+        ],
+        // Regex pattern used to search for instances of this block in the markdown document.
+        // Patterns are run in a multline environment (against the entire markdown document),
+        // and so generally should make use of the multiline flag (`m`). If you need to capture
+        // newlines in your capturing groups, you can either use something like
+        // `([\S\s]*)`, or you can additionally enable the "dot all" flag (`s`),
+        // which will cause `(.*)` to match newlines as well.
+        //
+        // Additionally, it's recommended that you use non-greedy capturing groups (e.g.
+        // `(.*?)` vs `(.*)`), especially if matching against newline characters.
+
+        pattern: /\{\{<divider-title title="(.*?)" align="(.*?)"\>\}\}/ms,
+          // Given a RegExp Match object
+          // (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match#return_value),
+          // return an object with one property for each field defined in `fields`.
+          //
+          // This is used to populate the custom widget in the markdown editor in the CMS.
+        fromBlock: function (match) {
+          return {
+            title: match[1],
+            align: match[2],
+          };
+        },
+        // Given an object with one property for each field defined in `fields`,
+        // return the string you wish to be inserted into your markdown.
+        //
+        // This is used to serialize the data from the custom widget to the
+        // markdown document
+        toBlock: function (data) {
+          return `{{<divider-title title="${data.title}" align="${data.align}">}}`;
+        },
+        // Preview output for this component. Can either be a string or a React component
+        // (component gives better render performance)
+        toPreview: function (data) {
+          return `<div class="divider-title" style="text-align: ${data.align}">${data.title}</div>`;
+        },
+      };
+
+      //  End Divider Title Widget ------------------------------------------------------------------- /
+
+      //  Start Download Widget ------------------------------------------------------------------- /
+
+      const DownloadWidget = {
+        // Internal id of the component
+        id: "download-widget",
+        // Visible label
+        label: "Download",
+        // Fields the user need to fill out when adding an instance of the component
+        fields: [
+          {
+            name: "title",
+            label: "Title",
+            widget: "string",
+            default: "",
+            required: true,
+          },
+          {
+            name: "span",
+            label: "Span",
+            widget: "select",
+            required: true,
+            options: ["1", "2", "3", "4", "5", "6"],
+            default: ["6"]
+          },
+          {
+            name: "url",
+            label: "File",
+            widget: "file",
+            default: "",
+            required: true,
+            media_library: {
+              config: {
+                allow_multiple: false,
+                media_folder: "/static/images",
+              },
+            },
+          },
+          {
+            name: "subtitle",
+            label: "Subtitle",
+            widget: "string",
+            default: "",
+            required: false,
+          },
+        ],
+        // Regex pattern used to search for instances of this block in the markdown document.
+        // Patterns are run in a multline environment (against the entire markdown document),
+        // and so generally should make use of the multiline flag (`m`). If you need to capture
+        // newlines in your capturing groups, you can either use something like
+        // `([\S\s]*)`, or you can additionally enable the "dot all" flag (`s`),
+        // which will cause `(.*)` to match newlines as well.
+        //
+        // Additionally, it's recommended that you use non-greedy capturing groups (e.g.
+        // `(.*?)` vs `(.*)`), especially if matching against newline characters.
+
+        pattern: /\{\{<download title="(.*?)" span="(.*?)" url="(.*?)" subtitle="(.*?)"\>\}\}/ms,
+        // Given a RegExp Match object
+        // (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match#return_value),
+        // return an object with one property for each field defined in `fields`.
+        //
+        // This is used to populate the custom widget in the markdown editor in the CMS.
+        fromBlock: function (match) {
+          return {
+            title: match[1],
+            span: match[2],
+            url: match[3],
+            subtitle: match[4],
+          };
+        },
+        // Given an object with one property for each field defined in `fields`,
+        // return the string you wish to be inserted into your markdown.
+        //
+        // This is used to serialize the data from the custom widget to the
+        // markdown document
+        toBlock: function (data) {
+          return `{{<download title="${data.title}" span="${data.span}" url="${data.url}" subtitle="${data.subtitle}">}}`;
+        },
+        // Preview output for this component. Can either be a string or a React component
+        // (component gives better render performance)
+        toPreview: function (data) {
+          const subtitle = data.subtitle !== "" ? `<div><b>${data.subtitle}</b></div>` : "";
+          const file = data.url.includes('/static/') ? data.url.split('/static/')[1] : data.url;
+          const fileURL = `${window.location.href.split('/admin/')[0]}/${file}`;
+          return `<div class="span-${data.span}">
+            <a class="download" href="${fileURL}" target="_blank" rel="no-follow no-referrer">
+                <div class="download-icon">
+                    <i class="fa-regular fa-circle-down"></i>
+                </div>
+                <div class="download-details">
+                    <div><b>${data.title}</b></div>
+                    ${subtitle}
+                </div>
+            </a>
+        </div>`;
+        },
+      };
+
+      //  End Download Widget ------------------------------------------------------------------- /
+
+      //  Start Hint Widget ------------------------------------------------------------------- /
+
+      const HintWidget = {
+        // Internal id of the component
+        id: "hint-widget",
+        // Visible label
+        label: "Hint",
+        // Fields the user need to fill out when adding an instance of the component
+        fields: [
+          {
+            name: "type",
+            label: "Type",
+            widget: "select",
+            options: ["info", "success", "warning", "danger"],
+            default: ["info"],
+            required: true,
+          },
+          {
+            name: "span",
+            label: "Span",
+            widget: "select",
+            required: true,
+            options: ["1", "2", "3", "4", "5", "6"],
+            default: ["6"],
+          },
+          {
+          name: "content",
+          label: "Content",
+          widget: "markdown",
+          required: true,
+        }
+        ],
+        // Regex pattern used to search for instances of this block in the markdown document.
+        // Patterns are run in a multline environment (against the entire markdown document),
+        // and so generally should make use of the multiline flag (`m`). If you need to capture
+        // newlines in your capturing groups, you can either use something like
+        // `([\S\s]*)`, or you can additionally enable the "dot all" flag (`s`),
+        // which will cause `(.*)` to match newlines as well.
+        //
+        // Additionally, it's recommended that you use non-greedy capturing groups (e.g.
+        // `(.*?)` vs `(.*)`), especially if matching against newline characters.
+
+        pattern: /\{\{<hint type="(.*?)" span="(.*?)"\>\}\}(.*?)\{\{<\/hint\>\}\}/ms,
+        // Given a RegExp Match object
+        // (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match#return_value),
+        // return an object with one property for each field defined in `fields`.
+        //
+        // This is used to populate the custom widget in the markdown editor in the CMS.
+        fromBlock: function (match) {
+          return {
+            type: match[1],
+            span: match[2],
+            content: match[3],
+          };
+        },
+        // Given an object with one property for each field defined in `fields`,
+        // return the string you wish to be inserted into your markdown.
+        //
+        // This is used to serialize the data from the custom widget to the
+        // markdown document
+        toBlock: function (data) {
+          return `{{<hint type="${data.type}" span="${data.span}">}}${data.content}{{</hint>}}`;
+        },
+        // Preview output for this component. Can either be a string or a React component
+        // (component gives better render performance)
+        toPreview: function (data) {
+          return `<div class="span-${data.span} hint-shortcode ${data.type}">${marked.parse(data.content)}</div>`;
+        },
+      };
+
+      //  End Hint Widget ------------------------------------------------------------------- /
+
+      //  Start Video Widget ------------------------------------------------------------------- /
+
+      const VideoWidget = {
+        // Internal id of the component
+        id: "video-widget",
+        // Visible label
+        label: "Video",
+        // Fields the user need to fill out when adding an instance of the component
+        fields: [
+          {
+            name: "src",
+            label: "File",
+            widget: "file",
+            default: "",
+            required: true,
+            media_library: {
+              config: {
+                allow_multiple: false,
+                media_folder: "/static/images",
+              },
+            },
+          },
+          {
+            name: "span",
+            label: "Span",
+            widget: "select",
+            required: true,
+            options: ["1", "2", "3", "4", "5", "6"],
+            default: ["6"],
+          },
+          {
+            name: "autoplay",
+            label: "Auto Play",
+            widget: "boolean",
+            default: false,
+          },
+          {
+            name: "muted",
+            label: "Muted",
+            widget: "boolean",
+            default: false,
+          },
+          {
+            name: "loop",
+            label: "Loop",
+            widget: "boolean",
+            default: false,
+          },
+          {
+            name: "poster",
+            label: "Poster",
+            widget: "image",
+            required: false,
+            default: "",
+            media_library: {
+              config: {
+                media_folder: "/static/images",
+                allow_multiple: false,
+              },
+            },
+          },
+        ],
+        // Regex pattern used to search for instances of this block in the markdown document.
+        // Patterns are run in a multline environment (against the entire markdown document),
+        // and so generally should make use of the multiline flag (`m`). If you need to capture
+        // newlines in your capturing groups, you can either use something like
+        // `([\S\s]*)`, or you can additionally enable the "dot all" flag (`s`),
+        // which will cause `(.*)` to match newlines as well.
+        //
+        // Additionally, it's recommended that you use non-greedy capturing groups (e.g.
+        // `(.*?)` vs `(.*)`), especially if matching against newline characters.
+
+        pattern: /\{\{<video src="(.*?)" span="(.*?)" autoplay="(.*?)" muted="(.*?)" loop="(.*?)" poster="(.*?)"\>\}\}/ms,
+        // Given a RegExp Match object
+        // (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match#return_value),
+        // return an object with one property for each field defined in `fields`.
+        //
+        // This is used to populate the custom widget in the markdown editor in the CMS.
+        fromBlock: function (match) {
+          return {
+            src: match[1],
+            span: match[2],
+            autoplay: convertToBool(match[3]),
+            muted: convertToBool(match[4]),
+            loop: convertToBool(match[5]),
+            poster: match[6],
+          };
+        },
+        // Given an object with one property for each field defined in `fields`,
+        // return the string you wish to be inserted into your markdown.
+        //
+        // This is used to serialize the data from the custom widget to the
+        // markdown document
+        toBlock: function (data) {
+          const autoplay = convertToBool(data.autoplay);
+          const muted = convertToBool(data.autoplay);
+          const loop = convertToBool(data.autoplay);
+          return `{{<video src="${data.src}" span="${data.span}" autoplay="${data.autoplay}" muted="${data.muted}" loop="${data.loop}" poster="${data.poster}">}}`;
+        },
+        // Preview output for this component. Can either be a string or a React component
+        // (component gives better render performance)
+        toPreview: function (data) {
+          const posterSrc = data.poster.includes('/static/') ? data.poster.split('/static/')[1] : data.poster;
+          const src = data.src.includes('/static/') ? data.src.split('/static/')[1] : data.src;
+          const posterUrl = data.poster !== "" ? `${window.location.href.split('/admin/')[0]}/${posterSrc}` : "";
+          const videoUrl = data.src !== "" ? `${window.location.href.split('/admin/')[0]}${src}` : "";
+          const isLooped = convertToBool(data.loop);
+          const isMuted = convertToBool(data.muted);
+          const isAutoplayed = convertToBool(data.autoplay);
+          return `<div class="span-${data.span}">
+            <video
+            poster="${posterUrl}"
+            ${isLooped ? "loop" : ""}
+            ${isAutoplayed ? "autoplay" : ""}
+            ${isMuted ? "muted" : ""}
+            controls>
+                <source src="${videoUrl}"></source>
+            </video>
+        </div>`;
+        },
+      };
+
+      //  End Video Widget ------------------------------------------------------------------- /
+
+      // Start css files for previews
+
+      const css = "../main.css";
+
+      const fontawesome = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css";
+
+      const googleFont = "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap";
+
+      // End css files for previews
+
+      // Start preview style registration
+
+      CMS.registerPreviewStyle(css);
+      CMS.registerPreviewStyle(fontawesome);
+      CMS.registerPreviewStyle(googleFont);
+
+      // End preview style registration
+
+      // Start editor component registration
+
+      CMS.registerEditorComponent(AudioWidget);
+      CMS.registerEditorComponent(BulletWidget);
+      CMS.registerEditorComponent(CatalogImageWidget);
+      CMS.registerEditorComponent(ColorWidget);
+      CMS.registerEditorComponent(ColumnWidget);
+      CMS.registerEditorComponent(DividerTitleWidget);
+      CMS.registerEditorComponent(DownloadWidget);
+      CMS.registerEditorComponent(HintWidget);
+      CMS.registerEditorComponent(VideoWidget);
+
+      // End editor component registration
+    </script>
+  </body>
+</html>

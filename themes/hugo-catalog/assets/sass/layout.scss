@@ -1,0 +1,151 @@
+body {
+  font-family: $user-default-font-family;
+}
+.layout {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+#content {
+  background-color: $content-bg;
+  width: calc(100% - 250px);
+  margin-left: 250px;
+  min-height: 100vh;
+  border-left: 1px solid $gray;
+  line-height: 1.5;
+}
+
+.content-body, .frame-content {
+  font-family: $user-default-font-family;
+  max-width: 960px;
+  padding: 48px 40px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: $spacing;
+
+  * {
+    grid-column: span 6;
+  }
+
+  h2:first-child {
+    margin-top: 0;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    width: 100%;
+    margin: 32px 0 0 0;
+  }
+  h2 + h3,
+  h2 + h4,
+  h2 + h5,
+  h2 + h6 {
+    margin: 0;
+  }
+
+  p {
+    color: $body-text;
+    margin: 0;
+    width: 100%;
+  }
+
+  ol {
+    margin-bottom: 0;
+  }
+
+  a {
+    color: $primary-color;
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  ul {
+    margin: 0;
+    li {
+      margin: 0;
+    }
+  }
+
+  blockquote {
+    width: 100%;
+    border-left: 4px solid $secondary-color;
+    padding-left: 20px;
+    font-size: 1.5rem;
+    margin: 8px 0 0 0;
+    p {
+      color: $secondary-color;
+      margin: 0;
+    }
+  }
+
+  hr {
+    border: none;
+    height: 1px;
+    background: $body-text;
+    width: 100%;
+  }
+
+  .highlight {
+    width: 100%;
+    pre {
+      padding: 20px;
+      overflow: auto;
+    }
+  }
+}
+
+.show-menu {
+  #content {
+    display: none;
+  }
+}
+
+// CSS to apply to decap previews
+.frame-content {
+  
+  .color-shortcode, .download, .hint-shortcode, .image-shortcode {
+    margin-top: 32px;
+    &::first-child {
+      margin-top: 0;
+    }
+  }
+
+  video {
+    margin-bottom: 32px;
+  }
+  
+  pre {
+    width: calc(100% - 40px);
+    overflow: auto;
+    background: #000;
+    color: $success;
+    padding: 20px;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 32px 0 !important;
+  }
+
+  blockquote {
+    margin: 32px 0;
+  }
+
+  .divider-title {
+    margin: 24px 0;
+  }
+
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {{ block "head" . }}
+            {{- partial "head.html" . -}}
+        {{ end }}
+    </head>
+    
+    <body>
+        <div class="layout">
+            {{ partial "nav.html" . }}
+        
+            <div id="content">
+                {{- partial "header.html" . -}}
+            
+                <div class="content-body">
+                    {{- block "main" . }}
+                        {{.Content}}
+                    {{- end }}
+                </div>
+            
+            </div>
+        </div>
+
+        {{- partial "footer.html" . -}}
+
+        {{ block "scripts" . }}
+
+            {{- partial "scripts.html" . -}}
+        
+        {{ end }}
+    </body>
+</html>

@@ -1,0 +1,9 @@
+// $size: calc(100% / 6);
+
+.content-body, .frame-content {
+  @for $i from 1 through 6 {
+    .span-#{$i} {
+      grid-column: span $i;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{{$url := .Get "url" | default ""}}
+{{$containsStatic := strings.Contains $url "/static"}}
+{{if ne $containsStatic true}}
+{{$url = printf "/static%s" $url}}
+{{end}}
+{{$title := .Get "title" | default ""}}
+{{$subtitle := .Get "subtitle" | default ""}}
+{{$span := .Get "span" | default 6}}
+{{$bytes := float (os.Stat $url).Size }}
+{{$k := 1024}}
+{{$dm := 2}}
+{{$sizes := slice "Bytes" "KB" "MB" "GB" "TB" "PB" "EB" "ZB" "YB"}}
+{{$i := math.Floor (div (math.Log $bytes) (math.Log $k))}}
+{{$fileSize := div $bytes (math.Pow $k $i)}}
+{{$sizeType := index $sizes (int $i)}}
+{{$fileURL := replace $url "/static/" "/" }}
+
+<div class="span-{{$span}}">
+    <a class="download" href="{{$fileURL}}" target="_blank" rel="no-follow no-referrer">
+        <div class="download-icon">
+            <i class="fa-regular fa-circle-down"></i>
+        </div>
+        <div class="download-details">
+            <div><b>{{$title}}</b></div>
+            {{if ne $subtitle ""}}
+                <div>{{$subtitle}}</div>
+            {{else}}
+                <div>{{$fileSize | lang.FormatNumber 2}} {{$sizeType}}</div>
+            {{end}}
+        </div>
+    </a>
+</div>

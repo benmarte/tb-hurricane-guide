@@ -1,0 +1,38 @@
+{{$span := .Get "span" | default 6}}
+{{$src := .Get "src" | default ""}}
+{{$title := .Get "title" | default ""}}
+{{$description := .Get "description" | default ""}}
+{{$light := .Get "light" | default "false"}}
+{{$dark := .Get "dark" | default "false"}}
+{{$overlay := .Get "overlay" | default ""}}
+{{$scale := .Get "scale" | default "true"}}
+{{$text_position := .Get "text_position" | default "top"}}
+
+<div
+  class="span-{{$span}} image-shortcode {{if eq $light "true"}}light{{end}} {{if eq $dark "true"}}dark{{end}} {{if eq $scale "false"}}no-scale{{end}}"
+>
+  {{if eq $text_position "top"}}
+    {{if ne $title ""}}
+    <p><b>{{$title}}</b></p>
+    {{end}}
+    {{if ne $description ""}}
+    <p>{{$description}}</p>
+    {{end}}
+  {{end}}
+  <div {{if ne $overlay ""}}class="source"{{end}}>
+    <img src="{{$src}}" />
+  </div>
+  {{if ne $overlay ""}}
+  <div class="overlay">
+    <img src="{{$overlay}}" />
+  </div>
+  {{end}}
+  {{if eq $text_position "bottom"}}
+    {{if ne $title ""}}
+    <p><b>{{$title}}</b></p>
+    {{end}}
+    {{if ne $description ""}}
+    <p>{{$description}}</p>
+    {{end}}
+  {{end}}
+</div>

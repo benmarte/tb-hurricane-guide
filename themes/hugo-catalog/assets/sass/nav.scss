@@ -1,0 +1,93 @@
+.brand {
+  padding: 40px;
+  width: calc(250px - 80px);
+  height: calc(200px - 80px);
+  display: flex;
+  align-items: center;
+  a {
+    text-decoration: none;
+  }
+  .logo-line-1 {
+    color: $secondary-color;
+    font-size: 3rem;
+  }
+  .logo-line-2 {
+    color: $primary-color;
+    font-size: 3rem;
+  }
+}
+
+.nav-close {
+  background-color: transparent;
+  border: none;
+  color: $primary-color;
+  font-size: 2rem;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  visibility: hidden;
+}
+
+.navigation {
+  width: 250px;
+  height: 100%;
+  min-height: 100vh;
+  margin-left: 0;
+  transition: all 0.3s ease-in-out;
+  position: fixed;
+  z-index: 10;
+
+  .nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: calc(100vh - 200px);
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    li {
+      border-top: 1px solid $gray;
+      &:last-child {
+        border-bottom: 1px solid $gray;
+      }
+    }
+
+    a {
+      display: block;
+      width: calc(100% - 40px);
+      padding: 16px 20px;
+      text-decoration: none;
+      line-height: 1.44;
+      color: $dark-gray;
+      &:hover,
+      &.active {
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+#TableOfContents {
+  ul {
+    list-style: none;
+    padding: 0 0 8px 0;
+    li {
+      border: none;
+      margin: 0;
+      padding: 0;
+      a {
+        padding: 8px 10px 8px 30px;
+        &:hover {
+          color: $secondary-color;
+        }
+      }
+      strong {
+        font-weight: normal;
+      }
+    }
+  }
+}

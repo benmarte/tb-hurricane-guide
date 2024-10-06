@@ -1,0 +1,24 @@
+.bullet {
+  display: flex;
+  align-items: flex-start;
+  margin: 8px 0 0 0;
+  width: 100%;
+
+  i {
+    margin: 3px 10px 0 0;
+  }
+
+  .success {
+    color: $success;
+  }
+
+  .danger {
+    color: $danger-dark;
+  }
+}
+
+.frame-content {
+  .bullet {
+    margin: 16px 0;
+  }
+}

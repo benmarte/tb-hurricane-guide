@@ -1,0 +1,32 @@
+@media (max-width: 1023px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .show-menu .nav-close,
+  .page-header .nav-toggle {
+    visibility: visible;
+  }
+
+  .navigation {
+    width: 100%;
+    position: absolute;
+    margin-left: -100%;
+    background-color: $white;
+  }
+  .show-menu {
+    margin-left: 0;
+  }
+  #content {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  [class^="span-"] {
+    grid-column: span 6 !important;
+  }
+  .image-shortcode.no-scale div > img{
+    width: 100% !important;
+    height: auto !important;
+  }
+}

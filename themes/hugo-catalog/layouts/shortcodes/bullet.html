@@ -1,0 +1,15 @@
+{{$type := .Get "type" | default "true"}}
+{{$leading_text := .Get "leading_text" | default ""}}
+{{$text := .Get "text" | default ""}}
+
+<div class="bullet">
+  {{if eq $type "true"}}
+  <i class="fa-regular fa-circle-check success"></i>
+  {{else}}
+  <i class="far fa-window-close danger"></i>
+  {{end}}
+  <div>
+    {{if ne $leading_text ""}}<b>{{$leading_text}}</b>{{end}}
+    {{if ne $text ""}}{{$text}}{{end}}
+  </div>
+</div>

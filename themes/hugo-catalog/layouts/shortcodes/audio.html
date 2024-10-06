@@ -1,0 +1,15 @@
+{{$src := .Get "src"}}
+{{$title := .Get "title" | default ""}}
+{{$span := .Get "span" | default 6}}
+{{$autoplay := .Get "autoplay" | default "false"}}
+{{$loop := .Get "loop" | default "false"}}
+{{$muted := .Get "muted" | default "false"}}
+
+<div class="span-{{$span}}">
+  <div class="audio-shortcode">
+    {{if ne $title ""}}
+    <p>{{$title}}</p>
+    {{end}}
+    <audio src="{{$src}}" {{if eq $autoplay "true"}}autoplay{{end}} {{if eq $muted "true"}}muted{{end}} {{if eq $loop "true"}}loop{{end}} controls></audio>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+.download {
+  text-decoration: none;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  color: $primary-color;
+  margin: 8px 0 0 0;
+
+  &:hover {
+    .download-icon,
+    .download-details {
+      color: $secondary-color;
+    }
+  }
+  .download-icon {
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+    background-color: $gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .download-details {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border: 1px solid $gray;
+    width: calc(100% - 120px);
+    background-color: $white;
+  }
+}

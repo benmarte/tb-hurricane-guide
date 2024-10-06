@@ -1,0 +1,29 @@
+{{ $scss := resources.Get "sass/main.scss" }} {{ $scss = $scss |
+resources.ExecuteAsTemplate "main.scss" . }} {{ $css := $scss | toCSS }}
+{{$font_family := .Site.Params.font_family | default "Montserrat"}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" />
+
+{{/* Start Google Fonts */}}
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family={{$font_family}}:wght@400;700&display=swap"
+  rel="stylesheet"
+/>
+
+{{/* End Google Fonts */}} {{/* Start Normalize CSS */}}
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+  integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+{{/* End Normalize CSS */}} {{/* Start Fontawesome */}}
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>

@@ -1,0 +1,11 @@
+$user-primary-color: {{.Site.Params.primary_color}};
+$user-secondary-color: {{.Site.Params.secondary_color}};
+$user-default-font-family: {{.Site.Params.font_family }};
+@import "colors.scss";
+@import "header.scss";
+@import "layout.scss";
+@import "nav.scss";
+@import "helpers.scss";
+@import "shortcodes/shortcodes.scss";
+@import "spans.scss";
+@import "mediaqueries.scss";
