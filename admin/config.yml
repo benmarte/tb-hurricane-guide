@@ -1,0 +1,52 @@
+backend:
+  # backend to use
+  name: github
+  # your github repo ex: benmarte/hugo-catalog
+  repo: benmarte/hugo-catalog-site
+  # optional, defaults to master
+  branch: main
+  # your netlify site name ex: netlify-site-name.netlify.app
+  site_domain: hugo-catalog.netlify.app
+  # required for pkce - uncomment if using gitlab pages
+  # auth_type: pkce
+  # application ID from your GitLab OAuth App - uncomment if using gitlab pages
+  # app_id: your-app-id
+
+# directory where your images are stored
+media_folder: /static/images
+# the path the site will use to store your images
+public_folder: /images
+
+# enables decap editorial workflow
+publish_mode: editorial_workflow
+
+# URL to your company logo to be used in the login screen, logo max width is 300px. Logo can be a relative path or a CDN url.
+logo_url: ../images/hugo-catalog-logo.svg
+
+# Collection of pages decap can access
+collections:
+  # name
+  - name: "content"
+    # label displayed in decap under collections
+    label: "Pages"
+    # directory with markdow files
+    folder: "/content"
+    create: true
+    # the filename will be used to generate the url to the page
+    slug: "{{slug}}"
+    # fields accessible in decap when creating or editing a page
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+  - name: "drafts"
+    # label displayed in decap under collections
+    label: "Drafts"
+    # directory with markdow files
+    folder: "/content/drafts"
+    create: true
+    # the filename will be used to generate the url to the page
+    slug: "{{slug}}"
+    # fields accessible in decap when creating or editing a page
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
