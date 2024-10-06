@@ -7,6 +7,14 @@ on:
   pull_request:
   workflow_dispatch:
 
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        type: boolean
+        description: 'Manual Deploy'
+        required: true
+
 jobs:
   deploy:
     runs-on: ubuntu-20.04
