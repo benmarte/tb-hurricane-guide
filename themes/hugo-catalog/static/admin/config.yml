@@ -6,7 +6,7 @@ backend:
   # optional, defaults to master
   branch: main
   # your netlify site name ex: netlify-site-name.netlify.app
-  site_domain: hugo-catalog.netlify.app
+  site_domain: tb-hurricane-guide.netlify.app
   # required for pkce - uncomment if using gitlab pages
   # auth_type: pkce
   # application ID from your GitLab OAuth App - uncomment if using gitlab pages
