@@ -28,6 +28,8 @@ title = true
     font_family = "Montserrat"
     # enables subnav page links in nav
     enable_subnav = true
+    # google analytics tracking id
+    google_analytics = "G-J6JLBQL4X8"
 
 [module]
   [module.hugoVersion]

@@ -29,5 +29,9 @@
             {{- partial "scripts.html" . -}}
         
         {{ end }}
+        
+        {{if  not (strings.Contains .Site.BaseURL "localhost")}}
+            {{ partial "google-analytics.html" . }}
+        {{ end }}
     </body>
 </html>
