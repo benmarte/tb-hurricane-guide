@@ -1,7 +1,7 @@
 {{ $scss := resources.Get "sass/main.scss" }} {{ $scss = $scss |
 resources.ExecuteAsTemplate "main.scss" . }} {{ $css := $scss | toCSS }}
 {{$font_family := .Site.Params.font_family | default "Montserrat"}}
-<link rel="stylesheet" href="{{ $css.RelPermalink }}" />
+<link rel="stylesheet" href="{{ $css.Permalink }}" />
 
 {{/* Start Google Fonts */}}
 <link rel="preconnect" href="https://fonts.googleapis.com" />
