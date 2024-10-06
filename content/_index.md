@@ -55,3 +55,4 @@ If you can, take a video of your house and contents....walk room to room--open c
 I also heard you should freeze a cup of water, and place a coin on top after it is frozen...keep this in your freezer to help you gauge the temperature if the power goes out.  If the coin stays on top, the food is staying frozen.  If the coin falls into the water, the freezer thawed out and most food will likely need to be thrown away.  This is super helpful is you have to leave and come back, as it may appear everything is still frozen, but if the coin is in the cup--you will know!!
 
 Rule #7  And for those asking, that means "Don't freak out unless I'm freaking out..we're fine".  Whatever comes our way, we've got this as long as we stay informed and prepared.
+
