@@ -1,6 +1,6 @@
 baseURL = "http://localhost:1313"
 languageCode = "en-us"
-title = "TB Hurricane Guide"
+title = "Hurricane Guide"
 theme = "hugo-catalog"
 
 canonifyURLs = true
@@ -11,11 +11,11 @@ title = true
 
 [Params]
     # title to display when sharing your site
-    title = "TB Hurricane Guide"
+    title = "Hurricane Guide"
     # thumbnail image to display when sharing your site
     thumbnail = "/images/thumbnail.jpg"
     # description text to display when sharing your site
-    description = "Design beautiful styleguides by using markdown."
+    description = "Resources for hurricane preparedness and response"
     # the path to your site logo 
     logo = "/images/tb-hurricane-guide-logo-sm.jpg"
     # enables displaying the site name in the header
