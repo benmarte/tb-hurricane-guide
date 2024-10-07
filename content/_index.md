@@ -31,7 +31,7 @@ that are valuable for anyone facing the risk of an incoming hurricane. We create
 - [Polk County](/county/polk-county)
 - [Sarasota County](/county/sarasota-county)
 
-{{<divider-title title="Free Parking" align="left">}}
+{{<divider-title title="Free Parking in Tampa" align="left">}}
 
 The City of Tampa is offering free garage parking to all residents in low-lying, flood-prone areas, particularly electric vehicle (EV) owners.
 
@@ -46,3 +46,7 @@ Parking will be available at the following City garages, with upper-level parkin
 - Whiting Garage: {{<directions-link address="118 S Florida Ave">}}
 - Tampa Convention Center Garage: {{<directions-link address="141 E. Brorein St.">}}
 - William F Poe Garage: {{<directions-link address="802 N. Ashley Dr.">}}
+
+{{<divider-title title="Free Parking in St. Petersburg" align="left">}}
+
+St. Petersburg is offering free parking at the South Core garage (101 1st Ave S) for storm prep on a space-available basis. Free entry starts Monday (10/7) at 5 p.m. until full or Tuesday (10/8) at 5 p.m. To park for free, vehicles must be retrieved by Saturday (10/12) at noon. — [City of St. Petersburg Facebook page.](https://www.facebook.com/StPeteFL/posts/949266387228449)
