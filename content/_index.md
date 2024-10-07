@@ -14,6 +14,10 @@ that are valuable for anyone facing the risk of an incoming hurricane. We create
 
 {{<windy-map>}}
 
+{{<divider-title title="How to properly sandbag" align="left">}}
+
+{{<youtube vnCDaAzED9U>}}
+
 {{<divider-title title="Hurricane Seasons" align="left">}}
 
 - **Eastern Pacific Hurricane Season:** May 15-November 30

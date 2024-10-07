@@ -15,6 +15,10 @@ title: "Hillsborough County"
 - [Ed Radice Sports Complex, 14720 Ed Radice Drive, Tampa](https://maps.app.goo.gl/tUG7LDWMC2qLh6z76)
 - [Larry Sanders Sports Complex, 5855 S. 78th St., Tampa](https://maps.app.goo.gl/rbnoeyzMa2sGLCTJA)
 
+{{<divider-title title="How to properly sandbag" align="left">}}
+
+{{<youtube vnCDaAzED9U>}}
+
 {{<divider-title title="Disaster Preparedness Guides" align="left">}}
 
 - [English](https://assets.contentstack.io/v3/assets/blteea73b27b731f985/blt43ba4f996ab09b90/Disaster%20Preparedness%20Guide)
