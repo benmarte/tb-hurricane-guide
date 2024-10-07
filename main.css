@@ -386,6 +386,10 @@ video {
 .content-body .span-6, .frame-content .span-6 {
   grid-column: span 6; }
 
+footer {
+  padding: 1rem;
+  text-align: center; }
+
 @media (max-width: 1023px) {
   .layout {
     flex-direction: column; }
