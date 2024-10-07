@@ -936,7 +936,7 @@
 
       //  Start DirectionLink Widget ------------------------------------------------------------------- /
 
-      const DirectionLink = {
+      const DirectionsLink = {
         // Internal id of the component
         id: "directionslink",
         // Visible label
@@ -953,11 +953,11 @@
         },
         // Function to create a text block from an instance of this component
         toBlock: function(obj) {
-          return `{{< directions-link address="${obj.address}" >}}`;
+          return `{{<directions-link address="${obj.address}">}}`;
         },
         // Preview output for this component (optional)
         toPreview: function(obj) {
-          return `${obj.address}`;
+          return `<a href="${obj.address}" target="_blank">${obj.address}</a>`;
         }
       };
 
@@ -992,6 +992,7 @@
       CMS.registerEditorComponent(DownloadWidget);
       CMS.registerEditorComponent(HintWidget);
       CMS.registerEditorComponent(VideoWidget);
+      CMS.registerEditorComponent(DirectionsLink);
 
       // End editor component registration
     </script>
