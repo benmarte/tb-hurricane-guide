@@ -8,4 +8,5 @@ $user-default-font-family: {{.Site.Params.font_family }};
 @import "helpers.scss";
 @import "shortcodes/shortcodes.scss";
 @import "spans.scss";
+@import "footer.scss";
 @import "mediaqueries.scss";
