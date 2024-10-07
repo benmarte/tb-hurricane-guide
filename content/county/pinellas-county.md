@@ -6,6 +6,7 @@ title: "Pinellas County"
 {{<divider-title title="Evacuation Zones" align="left">}}
 
 - [pinellas.gov](https://pinellas.gov/services/find-your-evacuation-zone/)
+- [disaster.pinellas.gov](https://pinellas.gov/emergency-information) **(updated hourly)**
 
 {{<divider-title title="Sandbag Locations" align="left">}}
 
