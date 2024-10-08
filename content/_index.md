@@ -27,6 +27,11 @@ T-Mobile and Sprint networks.
 **[Learn how to use Satellite Messaging on Android](https://www.androidsage.com/2024/05/16/how-to-activate-satellite-messaging-on-android-15/)**
 {{</column>}}
 
+{{<hint type="info">}}
+Gas Buddy has a search tool on their website that lets you find gas 
+stations near you that still have gas available. — **[Find gas now](https://www.gasbuddy.com/home)**
+{{</hint>}}
+
 {{<divider-title title="Fox Weather Channel Live" align="left">}}
 
 {{<youtube wt6SIE7BXS8>}}
