@@ -78,9 +78,7 @@ Parking will be available at the following City garages, with upper-level parkin
 
 {{<divider-title title="Free Parking in St. Petersburg" align="left">}}
 
-St. Petersburg is offering free parking at the South Core garage ({{<directions-link address="101 1st Ave S">}}) for storm prep on a space-available basis. Free entry starts Monday (10/7) at 5 p.m. until full or Tuesday (10/8) at 5 p.m. To park for free, vehicles must be retrieved by Saturday (10/12) at noon. — [City of St. Petersburg Facebook page.](https://www.facebook.com/StPeteFL/posts/949266387228449)
-
-[](https://www.facebook.com/StPeteFL/posts/949266387228449)
+St. Petersburg is offering free parking at the South Core garage ({{<directions-link address="101 1st Ave S">}}) for storm prep on a space-available basis. Free entry starts Monday (10/7) at 5 p.m. until full or Tuesday (10/8) at 5 p.m. To park for free, vehicles must be retrieved by Saturday (10/12) at noon. — **[City of St. Petersburg Facebook page.](https://www.facebook.com/StPeteFL/posts/949266387228449)**
 
 {{<divider-title title="Florida Emergency Relief Numbers" align="left">}}
 
@@ -90,59 +88,59 @@ Here’s a list of important phone numbers for emergency relief in Florida, incl
 
 * **Phone:** [1-800-621-FEMA](tel:18006213362)
 * **TTY:** [1-800-462-7585](tel:18004627585)
-* **Website:** [https://www.fema.gov](https://www.fema.gov)
+* **Website:** [fema.gov](https://www.fema.gov)
 
 ### Florida State Emergency Response Team (SERT):
 
 * **Phone:** [(850) 815-4001](tel:8508154001)
-* **Website:** [https://lnkd.in/eqX9EWzw](https://lnkd.in/eqX9EWzw)
+* **Website:** [floridadisaster.org](https://www.floridadisaster.org/)
 
 ### Florida Division of Emergency Management:
 
 * **Phone:** [(850) 815-4000](tel:8508154000)
 * **Toll-Free:** [1-800-342-3557](tel:18003423557)
-* **Website:** [https://lnkd.in/eqX9EWzw](https://lnkd.in/eqX9EWzw)
+* **Website:** [floridadisaster.org](https://www.floridadisaster.org/)
 
 ### American Red Cross – Florida Region:
 
 * **Phone:** [1-800-RED-CROSS](tel:18007332767)
-* **Website:** [https://lnkd.in/e6sxwdGk](https://lnkd.in/e6sxwdGk)
+* **Website:** [redcross.org/local/florida.html](https://www.redcross.org/local/florida.html)
 
 ### Florida Emergency Information Line (FEIL):
 
 * **Phone:** [1-800-342-3557](tel:18003423557) _(available 24/7 during emergencies)_
-* **Website:** [https://lnkd.in/eqX9EWzw](https://lnkd.in/eqX9EWzw)
+* **Website:** [floridadisaster.org](https://www.floridadisaster.org/)
 
 ### Florida Power Outage and Emergency Information (for reporting power outages):
 
 * **Florida Power & Light (FPL):** [1-800-4OUTAGE](tel:18004688243)
 * **Duke Energy Florida:** [1-800-228-8485](tel:18002288485)
-* **Tampa Electric (TECO):** tel:18775881010
+* **Tampa Electric (TECO):** [1-877-588-1010](tel:18775881010)
 
 ### Florida Department of Transportation – Emergency Road Information:
 
 * **Phone:** [1-866-374-3368](tel:18663743368)
-* **Website:** https://www.fl511.com
+* **Website:** [fl511.com](https://www.fl511.com)
 
 ### United Way of Florida – 211 Service:
 
 * **Phone:** [211](tel:211) (For local emergency resources, shelters, and food assistance)
-* **Website:** [https://www.211.org](https://www.211.org)
+* **Website:** [211.org](https://www.211.org)
 
 ### Florida Department of Health – Emergency Response:
 
 * **Phone:** [(850) 245-4444](tel:8502454444)
 * **Toll-Free:** tel:18667796121 (for health emergencies)
-* **Website:** https://lnkd.in/ecWkHR8S
+* **Website:** [floridahealth.gov](http://www.floridahealth.gov/)
 
 ### Salvation Army Florida Emergency Disaster Services:
 
 * **Phone:** [1-800-SAL-ARMY](tel:18007252769)
-* **Website:** [https://lnkd.in/eiRYJbbV](https://lnkd.in/eiRYJbbV)
+* **Website:** [salvationarmyflorida.org](https://www.salvationarmyflorida.org/)
 
 ### National Suicide Prevention Lifeline:
 
 * **Phone:** [988](tel:988)
-* **Website:** [https://988lifeline.org](https://988lifeline.org)
+* **Website:** [988lifeline.org](https://988lifeline.org)
 
 These resources are vital during disaster recovery and emergencies. You can also suggest that people save these numbers to ensure they are prepared during a crisis.
