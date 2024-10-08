@@ -86,78 +86,63 @@ St. Petersburg is offering free parking at the South Core garage ({{<directions-
 
 Here’s a list of important phone numbers for emergency relief in Florida, including FEMA and other essential services.
 
-FEMA Disaster Assistance Hotline:
+### FEMA Disaster Assistance Hotline:
 
-Phone: 1-800-621-FEMA (tel:18006213362)
+* **Phone:** [1-800-621-FEMA](tel:18006213362)
+* **TTY:** [1-800-462-7585](tel:18004627585)
+* **Website:** [https://www.fema.gov](https://www.fema.gov)
 
-TTY: tel:18004627585
+### Florida State Emergency Response Team (SERT):
 
-Website: https://www.fema.gov
+* **Phone:** [(850) 815-4001](tel:8508154001)
+* **Website:** [https://lnkd.in/eqX9EWzw](https://lnkd.in/eqX9EWzw)
 
-Florida State Emergency Response Team (SERT):
+### Florida Division of Emergency Management:
 
-Phone: tel:8508154001
+* **Phone:** [(850) 815-4000](tel:8508154000)
+* **Toll-Free:** [1-800-342-3557](tel:18003423557)
+* **Website:** [https://lnkd.in/eqX9EWzw](https://lnkd.in/eqX9EWzw)
 
-Website: https://lnkd.in/eqX9EWzw
+### American Red Cross – Florida Region:
 
-Florida Division of Emergency Management:
+* **Phone:** [1-800-RED-CROSS](tel:18007332767)
+* **Website:** [https://lnkd.in/e6sxwdGk](https://lnkd.in/e6sxwdGk)
 
-Phone: tel:8508154000
+### Florida Emergency Information Line (FEIL):
 
-Toll-Free: tel:18003423557
+* **Phone:** [1-800-342-3557](tel:18003423557) _(available 24/7 during emergencies)_
+* **Website:** [https://lnkd.in/eqX9EWzw](https://lnkd.in/eqX9EWzw)
 
-Website: https://lnkd.in/eqX9EWzw
+### Florida Power Outage and Emergency Information (for reporting power outages):
 
-American Red Cross – Florida Region:
+* **Florida Power & Light (FPL):** [1-800-4OUTAGE](tel:18004688243)
+* **Duke Energy Florida:** [1-800-228-8485](tel:18002288485)
+* **Tampa Electric (TECO):** tel:18775881010
 
-Phone: 1-800-RED-CROSS (tel:18007332767)
+### Florida Department of Transportation – Emergency Road Information:
 
-Website: https://lnkd.in/e6sxwdGk
+* **Phone:** [1-866-374-3368](tel:18663743368)
+* **Website:** https://www.fl511.com
 
-Florida Emergency Information Line (FEIL):
+### United Way of Florida – 211 Service:
 
-Phone: tel:18003423557 (available 24/7 during emergencies)
+* **Phone:** [211](tel:211) (For local emergency resources, shelters, and food assistance)
+* **Website:** [https://www.211.org](https://www.211.org)
 
-Website: https://lnkd.in/eqX9EWzw
+### Florida Department of Health – Emergency Response:
 
-Florida Power Outage and Emergency Information (for reporting power outages):
+* **Phone:** [(850) 245-4444](tel:8502454444)
+* **Toll-Free:** tel:18667796121 (for health emergencies)
+* **Website:** https://lnkd.in/ecWkHR8S
 
-Florida Power & Light (FPL): 1-800-4OUTAGE (tel:18004688243)
+### Salvation Army Florida Emergency Disaster Services:
 
-Duke Energy Florida: tel:18002288485
+* **Phone:** [1-800-SAL-ARMY](tel:18007252769)
+* **Website:** [https://lnkd.in/eiRYJbbV](https://lnkd.in/eiRYJbbV)
 
-Tampa Electric (TECO): tel:18775881010
+### National Suicide Prevention Lifeline:
 
-Florida Department of Transportation – Emergency Road Information:
-
-Phone: tel:18663743368
-
-Website: https://www.fl511.com
-
-United Way of Florida – 211 Service:
-
-Phone: 211 (For local emergency resources, shelters, and food assistance)
-
-Website: https://www.211.org
-
-Florida Department of Health – Emergency Response:
-
-Phone: tel:8502454444
-
-Toll-Free: tel:18667796121 (for health emergencies)
-
-Website: https://lnkd.in/ecWkHR8S
-
-Salvation Army Florida Emergency Disaster Services:
-
-Phone: 1-800-SAL-ARMY (tel:18007252769)
-
-Website: https://lnkd.in/eiRYJbbV
-
-National Suicide Prevention Lifeline:
-
-Phone: 988
-
-Website: https://988lifeline.org
+* **Phone:** [988](tel:988)
+* **Website:** [https://988lifeline.org](https://988lifeline.org)
 
 These resources are vital during disaster recovery and emergencies. You can also suggest that people save these numbers to ensure they are prepared during a crisis.
