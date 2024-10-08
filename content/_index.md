@@ -6,14 +6,26 @@ title: "Home"
 This website serves as a tool for hurricane preparedness in the Tampa Bay area, but contains resources
 that are valuable for anyone facing the risk of an incoming hurricane. We created this website as a central location for anyone looking for evacuation maps, sandbag locations, and other resources to help you get through a hurricane safely.
 
-{{<hint type="warning">}}
-**Connect to a satellite with your iPhone**
+{{<divider-title title="Satellite Connectivity on iOS and Android" align="left">}}
+
+{{<column span="3" align="left">}}
+**On iPhone models 14 and up:**
 
 With iPhone 14 or later (all models), you can connect your iPhone to a satellite to text emergency 
 services, request roadside assistance, message friends and family, and share your location.
 
-[Learn how](https://support.apple.com/en-us/105097)
-{{</hint>}}
+**[Learn how to use satellite connectivity on iOS](https://support.apple.com/en-us/105097)**
+{{</column>}}
+
+{{<column span="3" align="left">}}
+**On Android devices running Android 15:**
+
+With Android 15, you can use Satellite Messaging on eligible devices on eligible devices. Users on 
+the Google Pixel 7 series, Pixel 8, and 8 Pro have reported success with this in the United States on 
+T-Mobile and Sprint networks.
+
+**[Learn how to use Satellite Messaging on Android](https://www.androidsage.com/2024/05/16/how-to-activate-satellite-messaging-on-android-15/)**
+{{</column>}}
 
 {{<divider-title title="Fox Weather Channel Live" align="left">}}
 
