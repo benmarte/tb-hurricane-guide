@@ -20,7 +20,7 @@ services, request roadside assistance, message friends and family, and share you
 {{<column span="3" align="left">}}
 **On Android devices running Android 15:**
 
-With Android 15, you can use Satellite Messaging on eligible devices on eligible devices. Users on 
+With Android 15, you can use Satellite Messaging on eligible devices and networks. Users on 
 the Google Pixel 7 series, Pixel 8, and 8 Pro have reported success with this in the United States on 
 T-Mobile and Sprint networks.
 
