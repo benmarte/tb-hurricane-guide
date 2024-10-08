@@ -6,6 +6,15 @@ title: "Home"
 This website serves as a tool for hurricane preparedness in the Tampa Bay area, but contains resources
 that are valuable for anyone facing the risk of an incoming hurricane. We created this website as a central location for anyone looking for evacuation maps, sandbag locations, and other resources to help you get through a hurricane safely.
 
+{{<hint type="warning">}}
+**Connect to a satellite with your iPhone**
+
+With iPhone 14 or later (all models), you can connect your iPhone to a satellite to text emergency 
+services, request roadside assistance, message friends and family, and share your location.
+
+[Learn how](https://support.apple.com/en-us/105097)
+{{</hint>}}
+
 {{<divider-title title="Fox Weather Channel Live" align="left">}}
 
 {{<youtube wt6SIE7BXS8>}}
