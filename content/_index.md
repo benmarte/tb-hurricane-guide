@@ -7,7 +7,7 @@ that are valuable for anyone facing the risk of an incoming hurricane. We create
 
 {{<divider-title title="Radio Stations" align="left">}}
 
-If you have a radio on hand, you can tune into **94.1, 99.5, 92.5. 98.7 and 105 FM**.
+If you have a radio on hand, you can tune into **94.1, 99.5, 92.5. 98.7 and 10**5 FM for weather information**.**
 
 {{<divider-title title="Satellite Connectivity on iOS and Android" align="left">}}
 
