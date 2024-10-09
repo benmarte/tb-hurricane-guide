@@ -5,6 +5,10 @@ title: Home
 This website serves as a tool for hurricane preparedness in the Tampa Bay area, but contains resources
 that are valuable for anyone facing the risk of an incoming hurricane. We created this website as a central location for anyone looking for evacuation maps, sandbag locations, and other resources to help you get through a hurricane safely.
 
+{{<divider-title title="Radio Stations" align="left">}}
+
+If you have a radio on hand, you can tune into **94.1, 99.5, 92.5. 98.7 and 105 FM**.
+
 {{<divider-title title="Satellite Connectivity on iOS and Android" align="left">}}
 
 {{<column span="3" align="left">}}
@@ -108,7 +112,7 @@ Here’s a list of important phone numbers for emergency relief in Florida, incl
 
 ### Florida Emergency Information Line (FEIL):
 
-* **Phone:** [1-800-342-3557](tel:18003423557) _(available 24/7 during emergencies)_
+* **Phone:** [1-800-342-3557](tel:18003423557) *(available 24/7 during emergencies)*
 * **Website:** [floridadisaster.org](https://www.floridadisaster.org/)
 
 ### Florida Power Outage and Emergency Information (for reporting power outages):
