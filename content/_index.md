@@ -5,11 +5,11 @@ title: Home
 This website serves as a tool for hurricane preparedness in the Tampa Bay area, but contains resources
 that are valuable for anyone facing the risk of an incoming hurricane. We created this website as a central location for anyone looking for evacuation maps, sandbag locations, and other resources to help you get through a hurricane safely.
 
-{{<divider-title title=“Comfort and Cooling Stations, Food, etc.” align=“left”>}}
+{{<divider-title title="Comfort and Cooling Stations, Food, etc." align="left">}}
 
 ### Comfort stations
 
-* **Temple Terrace Library, Friday-Sunday, 9am - 5pm**: {{<directions-link address=“202 Bullard Pkwy Temple Terrace, FL 33617”>}} - [source](https://facebook.com/story.php?story_fbid=968375105335131&id=100064879502109)
+* **Temple Terrace Library, Friday-Sunday, 9am - 5pm**: {{<directions-link address="202 Bullard Pkwy Temple Terrace, FL 33617">}} - [source](https://facebook.com/story.php?story_fbid=968375105335131&id=100064879502109)
 
 ### Food
 
